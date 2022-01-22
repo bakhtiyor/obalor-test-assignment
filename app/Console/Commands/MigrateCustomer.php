@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Repository\MigrateCustomerRepositoryInterface;
 use Illuminate\Console\Command;
 
 class MigrateCustomer extends Command
@@ -20,14 +21,17 @@ class MigrateCustomer extends Command
      */
     protected $description = 'Migrates data from a CSV file into a customers table';
 
+    private $migrateCustomerRepository;
+
     /**
      * Create a new command instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(MigrateCustomerRepositoryInterface $migrateCustomerRepository)
     {
         parent::__construct();
+        $this->migrateCustomerRepository = $migrateCustomerRepository;
     }
 
     /**
@@ -38,7 +42,7 @@ class MigrateCustomer extends Command
     public function handle()
     {
         $file = $this->argument('file');
-        print("Migrate data from $file into a customers table");
+        print($this->migrateCustomerRepository->migrateDataToCustomers($file));
         return 0;
     }
 }
