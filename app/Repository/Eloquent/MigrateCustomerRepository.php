@@ -85,6 +85,9 @@ class MigrateCustomerRepository implements MigrateCustomerRepositoryInterface
                     $objWriter = IOFactory::createWriter($objPHPExcel, 'Xlsx');
                     $filename = "customer_migration_errors_".date('Ymd_His').".xlsx";
                     $filepath = "./public/migration-reports/$filename";
+                    if (!file_exists('./public/migration-reports')){
+                        @mkdir('./public/migration-reports');
+                    }
                     $objWriter->save($filepath);
 
                     return "\nMigration of data from $file into a customers table is completed and errors are reported in public/migration-reports/$filename";
