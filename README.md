@@ -3,8 +3,8 @@
 A php artisan command for migrating data from a CSV file into a customers table.
 
 ## Installation
-- Clone a repository `git clone git@github.com:bakhtiyor/obalor-test-assignment.git` 
-- Go to the folder where cloned the git repository `cd repo-folder-name`
+- Clone a repository `git clone git@github.com:bakhtiyor/obalor-test-assignment.git obalor-test-assignment` 
+- Go to the folder where cloned the git repository `cd obalor-test-assignment`
 - Install laravel project `composer install`
 - Copy .env.example file and create a new .env file (`cp .env.example .env`)
 - Set `DB_DATABASE`, `DB_USERNAME` and `DB_PASSWORD` parameters in a .env file
